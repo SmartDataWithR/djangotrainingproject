@@ -5,6 +5,12 @@
 
 <div class="container">
 <h1>Hier kommt der Content rein!</h1> 
+
+{% if user.is_authenticated %}
+<p>Name: {{ user.username }}</p>
+<p>Password: {{ user.password }}</p>
+
+{% endif %}
 </div>  
 
 {% endblock content%}   
