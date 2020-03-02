@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 
 from main.views import index, login_user, logout_user, register_user, edit_profile, change_password
@@ -29,6 +29,8 @@ urlpatterns = [
     path('register/', register_user, name='register'),
     path('edit_profile/', edit_profile, name='edit_profile'),
     path('change_password', change_password, name='change_password'),
+    # allauth
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
