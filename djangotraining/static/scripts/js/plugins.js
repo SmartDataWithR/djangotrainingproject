@@ -1,3 +1,16 @@
+/* ===== SEARCH AUTOFILL ===========*/
+$(document).ready(function(){ 
+    $("#txtSearch").autocomplete({
+        source: "/ajax_calls/search/",
+        minLength: 2,
+        open: function(){
+            setTimeout(function () {
+                $('.ui-autocomplete').css('z-index', 99);
+            }, 0);
+        }
+      });
+});
+
 /*========== NAVBAR TRANSPARENT TO SOLID ==========*/
 $(document).ready(function () { //when document(DOM) loads completely
     checkScroll(); //check if page is scrolled

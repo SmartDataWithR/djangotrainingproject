@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center">Suchergebnisse</h2>
+
+<div class="col-md-6 offset-md-3">
+    <!-- {% for t in title %}
+    <p>{{ t.title }}</p>
+    {% endfor %}
+     -->    
+     <form id="search" method="POST" action="{% url 'search' %}">
+      {% csrf_token %}
+      <input type="text" class="form-control" id="txtSearch" name="txtSearch">
+      <button type="submit" class="btn btn-default btn-submit">Submit</button>
+      </form>
+    </div>
+
+
+ {% endblock %}

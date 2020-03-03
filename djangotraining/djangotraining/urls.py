@@ -24,6 +24,7 @@ from main.views import index, login_user, logout_user, register_user, edit_profi
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
+    # authentication
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('register/', register_user, name='register'),
@@ -31,6 +32,8 @@ urlpatterns = [
     path('change_password', change_password, name='change_password'),
     # allauth
     path('accounts/', include('allauth.urls')),
+    # search-app
+    path('', include('search.urls')),
 ]
 
 if settings.DEBUG:
