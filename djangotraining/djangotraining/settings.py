@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # user apps
     'search',
+    'authenticate',
 
     # allauth
     'allauth',

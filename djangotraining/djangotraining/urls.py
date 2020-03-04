@@ -18,22 +18,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 
-from main.views import index, login_user, logout_user, register_user, edit_profile, change_password
-
+from main.views import index
+from authenticate.views import login_user, logout_user, register_user, edit_profile, change_password
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'),
-    # authentication
-    path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout'),
-    path('register/', register_user, name='register'),
-    path('edit_profile/', edit_profile, name='edit_profile'),
-    path('change_password', change_password, name='change_password'),
     # allauth
     path('accounts/', include('allauth.urls')),
     # search-app
     path('', include('search.urls')),
+    # authenticate
+    path('', include('authenticate.urls'))
 ]
 
 if settings.DEBUG:
