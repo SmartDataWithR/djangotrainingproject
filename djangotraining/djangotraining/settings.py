@@ -141,3 +141,11 @@ MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
 SITE_ID=1
 
 LOGIN_REDIRECT_URL = "/"
+
+# Email setup for Password Reset
+EMAIL_HOST = 'posteo.de'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'bert.gollnick@posteo.net'
+EMAIL_HOST_PASSWORD = 'hierMussEinGültigesPasswortRein'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Bert Gollnick <gollnick.bert@posteo.net>'

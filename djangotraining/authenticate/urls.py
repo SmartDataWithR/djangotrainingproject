@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
 from .views import *
 
@@ -9,5 +9,5 @@ urlpatterns = [
     path('register/', register_user, name='register'),
     path('edit_profile/', edit_profile, name='edit_profile'),
     path('change_password', change_password, name='change_password'),
-
+    path('', include('django.contrib.auth.urls')),
 ]
