@@ -6,7 +6,7 @@
 
 <!-- Start Home Section -->
 <div id="home">
-
+    
     <!-- Start Landing Page Image -->
     <div class="landing">
         <div class="home-wrap">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <!-- End Landing Page Image -->
-
+    
     <!-- Start Landing Page Caption -->
     <div class="caption text-center text-light text-uppercase">
 
@@ -37,6 +37,7 @@
 <!-- End Home Section -->
 
 <!--Modal: Login / Register Form-->
+
 <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         
@@ -64,6 +65,7 @@
                 <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
   
                 <!--Body-->
+                
                 <div class="modal-body mb-1">
                     <h1 class="text-center mt-6 mb-4">Anmelden</h1>
                     <div class="social-container text-center mb-4">
@@ -71,7 +73,8 @@
                         <a href="{% provider_login_url "google" %}" class="social"><span style="color: #505962"><i class="fab fa-google fa-3x"></i></span></a>
                         <a href="#" class="social"><span style="color: #505962"><i class="fab fa-linkedin fa-3x"></i></span></a>
                     </div>
-                    <form method="POST">
+                    
+                    <form method="POST" action="{% url 'login2' %}">
                     {% csrf_token %}    
                         <div class="text-center mb-2">Oder benutzen Sie Ihre Email für die Anmeldung</div>
                         <div class="md-form form-sm mb-3">
@@ -93,6 +96,7 @@
                         </div>
 
                         <div class="text-center mt-2">
+                            <!-- <a href="{% url 'home' %}" class="nav-link">Anmelden2</a> -->
                             <button type="submit" class="btn btn-info">Anmelden</button>
                         </div>
                     </form>
@@ -180,6 +184,17 @@
         {% endif %}
         
     </div>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissable" role="alert">
+            <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                </button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
     <div class="container">
         <H1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam deleniti id eos necessitatibus nulla molestiae vero dignissimos eaque ducimus. Exercitationem saepe fugit tempore maiores inventore voluptatibus nesciunt sit accusamus ab!
 
@@ -192,6 +207,7 @@
         </h2>
     </div>
 </div> 
+{{ message }}
 <!-- End Features Section -->
 
 <!-- Top Scroll -->
