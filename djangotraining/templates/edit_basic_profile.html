@@ -13,14 +13,15 @@
                 <small><sup>x</sup></small>
             </button>
             <p>Das Formular hat Fehler.</p>
-            {% for field in form %}
+            {% for field in user_form %}
                 {% if field.errors %}
                   {{ field.errors }}
                 {% endif %}
             {% endfor %}
         </div>
         {% endif%}
-        {{ form.as_p }}
+        {{ user_form.as_p }}
+        {{ basic_profile_form.as_p }}
         <input type="submit" value="Änderungen speichern" class="btn btn-secondary">
         <p><small><a href="{% url 'change_password' %}">Klicke hier</a> um das Passwort zu ändern</small></p>
 

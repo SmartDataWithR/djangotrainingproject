@@ -12,7 +12,9 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Wiederhole dein Passwort'}))
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2', )  # 'first_name', 'last_name', 'email',
+        fields = ('username', 'password1', 'password2', ) #'first_name', 'last_name', 'email',
 
     def __init__(self, *args, **kwargs):
 	    super(SignUpForm, self).__init__(*args, **kwargs)
+
+

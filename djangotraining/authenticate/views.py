@@ -29,10 +29,7 @@ def logout_user(request):
 def register_user(request):
     
     if request.method=='POST':
-        print('inside')
         form = SignUpForm(request.POST)
-        print(form)
-        print(form.is_valid())
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
