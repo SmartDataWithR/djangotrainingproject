@@ -19,19 +19,22 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from main.views import index
-from authenticate.views import login_user, logout_user, register_user, edit_profile, change_password
+from authenticate.views import login_user, logout_user, register_user, change_password
 from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='home'), 
     path('login2/', LoginView.as_view(template_name='authenticate/login.html'), name='login2'),
+    path('register', register_user, name='register'),
     # allauth
     path('accounts/', include('allauth.urls')),
     # search-app
     path('', include('search.urls')),
-    # authenticate
-    path('', include('authenticate.urls'))
+    # authenticate-app
+    path('', include('authenticate.urls')),
+    # profiles-app
+    path('', include('profiles.urls'))
 ]
 
 if settings.DEBUG:
