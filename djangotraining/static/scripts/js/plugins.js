@@ -69,7 +69,7 @@ $(document).ready(function () {
 
 /*========== MEET THE TEAM CAROUSEL ==========*/
 $(document).ready(function(){ //when document(DOM) loads completely
-    $('#team-carousel').owlCarousel({ //owlCarousel settings
+    $('#seller-carousel').owlCarousel({ //owlCarousel settings
         autoplay: true, //set to false to turn off autoplay and only use nav
         autoplayHoverPause: true, //set to false to prevent pausing on hover
         loop: true, //set to false to stop carousel after all slides shown
@@ -84,7 +84,7 @@ $(document).ready(function(){ //when document(DOM) loads completely
                 items: 2 //768px width and up display 2 items
             },
             992 : {
-                items: 3 //992px width and up display 3 items
+                items: 4 //992px width and up display 3 items
             }
         }
     });
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
 /*========== CLIENTS CAROUSEL ==========*/
 $(document).ready(function(){ //when document(DOM) loads completely
-    $('#clients-carousel').owlCarousel({ //owlCarousel settings
+    $('#seller-carousel').owlCarousel({ //owlCarousel settings
         autoplay: true, //set to false to turn off autoplay and only use nav
         autoplayHoverPause: true, //set to false to prevent pausing on hover
         loop: true, //set to false to stop carousel after all slides shown
@@ -218,4 +218,26 @@ $(function () {
           return false;
       }
   })
+});
+
+/*========== Profile ==========*/
+$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.avatar').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
 });

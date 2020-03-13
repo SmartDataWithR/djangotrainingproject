@@ -93,7 +93,7 @@ html {
     left: 0;
  }
  .home-inner {
-    background-image: url('../img/computers.jpg');
+    background-image: url('../img/music.jpg');
     position: fixed;
     height: 100%;
     width: 100%;
@@ -103,6 +103,7 @@ html {
     transform: translateZ(0);
     will-change: transform;
     display: table;
+    opacity: 0.8;
  }
  
  /*-- Landing Page Caption --*/
@@ -149,8 +150,24 @@ html {
 
  /*-- Modal LogIn SignIn --*/
 
+ /*-- Seller/Search --*/
+.google-map {
+   margin-left: auto;
+   margin-right: auto;
 
-
+}
+.seller {
+   margin-left: auto;
+   margin-right: auto;
+}
+.card {
+   border-radius: 0;
+   border-color: rgb(203, 203, 203);
+   border-width: .01rem;
+}
+.text-seller {
+   color: #1EBBA3;
+}
 
 
 /*============= MEDIA QUERIES =============*/

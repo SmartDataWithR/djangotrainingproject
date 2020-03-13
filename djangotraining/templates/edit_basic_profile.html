@@ -3,29 +3,267 @@
 
 {% block content %}
 
-<h2 class="text-center">Profil bearbeiten</h2>
-<div class="col-md-6 offset-md-3">
-    <form method="POST" action="{% url 'edit_basic_profile' %}">
-        {% csrf_token %}
-        {% if form.errors %}
-        <div class="alert alert-warning alert-dismissable" role="alert">
-            <button class="close" data-dismiss="alert">
-                <small><sup>x</sup></small>
-            </button>
-            <p>Das Formular hat Fehler.</p>
-            {% for field in user_form %}
-                {% if field.errors %}
-                  {{ field.errors }}
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% endif%}
-        {{ user_form.as_p }}
-        {{ basic_profile_form.as_p }}
-        <input type="submit" value="Änderungen speichern" class="btn btn-secondary">
-        <p><small><a href="{% url 'change_password' %}">Klicke hier</a> um das Passwort zu ändern</small></p>
+    <div class="container offset">
+        <div class="row">
+  		    <div class="col-sm-10"><h1>Profil und Kurse</h1></div>
+    	    <!-- <div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image" class="rounded-circle img-responsive" src="..."></a></div> -->
+    </div>
+    <div class="row">
+        <div class="col-sm-auto"><!--left col-->
+              
 
-    </form>
-</div>
+            <div class="text-center">
+                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
+                <h6>Profilbild ändern</h6>
+                <input type="file" class="text-center center-block file-upload">
+            </div>
 
-{% endblock content%}
+             
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">Website</div>
+                <div class="panel-body"><a href="{% url 'home' %}">DjangoTraining</a></div>
+            </div>
+          
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Activity</li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Shares
+                    <span class="badge badge-primary badge-pill">125</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Likes
+                    <span class="badge badge-primary badge-pill">13</span> 
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Posts
+                    <span class="badge badge-primary badge-pill">37</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Followers
+                    <span class="badge badge-primary badge-pill">78</span> 
+                </li>
+            </ul> 
+               
+        </div><!--/col-3-->
+
+    	<div class="col-sm-8">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-link active"><a data-toggle="tab" href="#home" role="tab">Profil</a></li>
+                <li class="nav-link"><a data-toggle="tab" href="#messages" role="tab">Kurse</a></li>
+                <li class="nav-link"><a data-toggle="tab" href="#settings" role="tab">Zeugs</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade in show active" id="home" role="tabpanel">
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="row justify-content-between">
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="first_name"><h4>First name</h4></label>
+                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+                                <div class="col-xs-6">
+                                    <label for="last_name"><h4>Last name</h4></label>
+                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="row justify-content-between">
+                            <div class="form-group">                         
+                                <div class="col-xs-6">
+                                    <label for="phone"><h4>Phone</h4></label>
+                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="mobile"><h4>Mobile</h4></label>
+                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="form-group pull-right">
+                                <div class="col-col-xs-6">
+                                    <label for="email"><h4>Email</h4></label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" title="Geben DIe eine Email an">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-col-xs-6">
+                                    <label for="location"><h4>Stadt</h4></label>
+                                    <input type="text" class="form-control" name="location" id="location" placeholder="Geben Sie Ihren Wohnort ein" title="Geben Sie Ihren Wohnort ein">
+                                </div>
+                            </div>  
+                        </div>  
+                        <div class="row justify-content-between">
+                            <div class="form-group">                         
+                                <div class="col-xs-6">
+                                    <label for="password"><h4>Passwort</h4></label>
+                                    <input type="password" class="form-control" name="phone" id="password" placeholder="Geben Sie ein Passwort ein" title="Geben Sie ein Passwort ein">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="password"><h4>Passwort bestätigen</h4></label>
+                                    <input type="password" class="form-control" name="veryfy_password" id="password" placeholder="Bestätigen Sie ihr Passwort" title="Bestätigen Sie ihr Passwort">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit"><i class="far fa-save"></i> Save</button>
+                               	<button class="btn btn-lg" type="reset"><i class="fas fa-undo"></i> Reset</button>
+                            </div>
+                        </div>
+              	    </form>
+              
+             </div><!--/tab-pane-->
+             <div class="tab-pane fade" id="messages" role="tabpanel">
+            
+                  <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>First name</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Last name</h4></label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Phone</h4></label>
+                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Mobile</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Location</h4></label>
+                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="password"><h4>Password</h4></label>
+                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="password2"><h4>Verify</h4></label>
+                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	<button class="btn btn-lg" type="reset"><span><i class="fas fa-undo"></i></span>Reset</button>
+                            </div>
+                      </div>
+              	</form>
+               
+             </div><!--/tab-pane-->
+             <div class="tab-pane fade" id="settings" role="tabpanel">
+            		
+               	
+                  <hr>
+                  <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>First name</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Last name</h4></label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Phone</h4></label>
+                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Mobile</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Location</h4></label>
+                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="password"><h4>Password</h4></label>
+                              <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="password2"><h4>Verify</h4></label>
+                              <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                               	<!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                            </div>
+                      </div>
+              	</form>
+              </div>
+               
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+
+{% endblock content%}    
